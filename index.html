@@ -28,15 +28,15 @@
                     colors: {
                         brand: {
                             base: '#F9F6F2',      /* 背景：非常に淡い生成り */
-                            main: '#E6DMD3',      /* メイン：温かみのあるグレージュ */
-                            accent: '#D4A3A3',    /* アクセント：くすみピンク（添付画像イメージ） */
-                            text: '#594A42',      /* テキスト：焦げ茶（黒を使わず柔らかく） */
+                            main: '#E6DBD3',      /* メイン：温かみのあるグレージュ (Hex修正済) */
+                            accent: '#D4A3A3',    /* アクセント：くすみピンク */
+                            text: '#594A42',      /* テキスト：焦げ茶 */
                             gold: '#C5A065',      /* 金色：控えめなゴールド */
                             dark: '#3D332F'       /* 引き締め色 */
                         }
                     },
                     fontFamily: {
-                        sans: ['"Zen Old Mincho"', 'serif'], /* メインを明朝体に */
+                        sans: ['"Zen Old Mincho"', 'serif'],
                         serif: ['"Zen Old Mincho"', 'serif'],
                         en: ['"Cormorant Garamond"', 'serif'],
                     },
@@ -75,6 +75,7 @@
             -webkit-font-smoothing: antialiased;
             color: #594A42;
             background-color: #F9F6F2;
+            margin: 0;
         }
         
         /* 縦書き用ユーティリティ */
@@ -124,6 +125,11 @@
         ::selection {
             background: #D4A3A3;
             color: #fff;
+        }
+
+        /* 文字の視認性を高める光彩エフェクト */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(249, 246, 242, 0.9), 0 0 8px rgba(249, 246, 242, 0.8);
         }
     </style>
 </head>
@@ -198,7 +204,7 @@
                     {/* Header / Nav */}
                     <header className="fixed w-full top-0 left-0 z-50 transition-all duration-300 py-6 mix-blend-multiply">
                         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                            <h1 className="text-xl md:text-2xl font-en text-brand-text tracking-widest z-50">
+                            <h1 className="text-xl md:text-2xl font-en text-brand-text tracking-widest z-50 cursor-pointer">
                                 La Lune et moi
                             </h1>
                             <nav className="hidden md:flex gap-8 text-xs font-en tracking-widest text-brand-text/80">
@@ -215,7 +221,7 @@
                         <div className="absolute inset-0 z-0">
                             {/* REPLACE: 背景画像をブランドの世界観に合うものに変更してください */}
                             <img 
-                                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2560&auto=format&fit=crop" 
+                                src="https://raw.githubusercontent.com/asuka-sketch/la-lune-et-moi/main/assets/top.webp" 
                                 alt="Forest Light" 
                                 className="w-full h-full object-cover opacity-90 scale-105 animate-float"
                                 style={{ animationDuration: '20s' }}
@@ -228,17 +234,17 @@
                         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-20">
                             <div className="inline-block mb-6 animate-fade-in opacity-0">
                                 <span className="block w-[1px] h-20 bg-brand-text/40 mx-auto mb-6"></span>
-                                <p className="text-sm md:text-base font-en text-brand-gold tracking-[0.3em] uppercase mb-4">
+                                <p className="text-sm md:text-base font-en text-brand-gold tracking-[0.3em] uppercase mb-4 text-glow">
                                     La Lune et moi Collection
                                 </p>
                             </div>
                             
-                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-relaxed tracking-jwide text-brand-text mb-8 opacity-0 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-relaxed tracking-jwide text-brand-text mb-8 opacity-0 animate-fade-up text-glow" style={{ animationDelay: '0.3s' }}>
                                 触れるたび、私に還る。<br />
                                 <span className="text-2xl md:text-4xl lg:text-5xl block mt-4">森の呼吸をまとう「木の布」ライナー</span>
                             </h2>
 
-                            <p className="text-sm md:text-base leading-loose font-serif opacity-80 mb-12 animate-fade-up opacity-0" style={{ animationDelay: '0.6s' }}>
+                            <p className="text-sm md:text-base leading-loose font-serif opacity-80 mb-12 animate-fade-up opacity-0 text-glow" style={{ animationDelay: '0.6s' }}>
                                 女性の聖域を包む、循環の温もり。<br className="md:hidden"/>
                                 木から生まれた、奇跡の布。
                             </p>
@@ -257,7 +263,7 @@
                                     <div className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-xl">
                                         {/* REPLACE: 木の布のアップ画像や、生成りの布地の画像に差し替え */}
                                         <img 
-                                            src="https://images.unsplash.com/photo-1596482885993-9c5950a25695?q=80&w=1200&auto=format&fit=crop" 
+                                            src="https://raw.githubusercontent.com/asuka-sketch/la-lune-et-moi/main/assets/cotton.webp" 
                                             alt="Cotton Texture" 
                                             className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
                                         />
@@ -297,7 +303,7 @@
                                     <div className="aspect-[4/5] bg-white p-3 shadow-lg rotate-1">
                                         {/* REPLACE: 森の中のポートレートや、自然を感じる写真に差し替え */}
                                         <img 
-                                            src="https://images.unsplash.com/photo-1445510861639-565a15318811?q=80&w=1200&auto=format&fit=crop" 
+                                            src="https://raw.githubusercontent.com/asuka-sketch/la-lune-et-moi/main/assets/saya.webp" 
                                             alt="Nature and Me" 
                                             className="w-full h-full object-cover grayscale-[0.2]"
                                         />
@@ -387,7 +393,7 @@
                                         <div className="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/5 transition-colors duration-500 z-10"></div>
                                         {/* REPLACE: まんまる木の布ライナーの画像 */}
                                         <img 
-                                            src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?q=80&w=1200&auto=format&fit=crop" 
+                                            src="https://raw.githubusercontent.com/asuka-sketch/la-lune-et-moi/main/assets/manmaru.webp" 
                                             alt="まんまる木の布ライナー" 
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
@@ -413,7 +419,7 @@
                                         <div className="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/5 transition-colors duration-500 z-10"></div>
                                         {/* REPLACE: ポケット付きひし形ライナーの画像 */}
                                         <img 
-                                            src="https://images.unsplash.com/photo-1627913349767-1729c36777f9?q=80&w=1200&auto=format&fit=crop" 
+                                            src="https://raw.githubusercontent.com/asuka-sketch/la-lune-et-moi/main/assets/hishigata.webp" 
                                             alt="ポケット付きライナー" 
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
@@ -439,20 +445,20 @@
                                         <div className="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/5 transition-colors duration-500 z-10"></div>
                                         {/* REPLACE: ハンカチの画像 */}
                                         <img 
-                                            src="https://images.unsplash.com/photo-1595180630018-9366df21a5a0?q=80&w=1200&auto=format&fit=crop" 
-                                            alt="木の布ハンカチ" 
+                                            src="https://raw.githubusercontent.com/asuka-sketch/la-lune-et-moi/main/assets/minitaoru.webp" 
+                                            alt="木の布ミニタオルハンカチ" 
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
-                                    </div>
-                                    <div className="text-center">
-                                        <h3 className="text-lg font-serif mb-2">木の布ミニタオルハンカチ</h3>
-                                        <p className="text-xs text-brand-text/60 mb-3 tracking-widest">Triple Gauze</p>
-                                        <p className="text-sm font-serif opacity-80 leading-relaxed mb-4">
-                                            贅沢なトリプルガーゼ仕様。<br/>
-                                            お股に当てて使う裏技も。<br/>
-                                            いつでも森を持ち歩く感覚。
-                                        </p>
-                                        <p className="text-base font-en text-brand-dark mb-4">¥0,000</p>
+                                        <div className="text-center">
+                                            <h3 className="text-lg font-serif mb-2">木の布ミニタオルハンカチ</h3>
+                                            <p className="text-xs text-brand-text/60 mb-3 tracking-widest">Triple Gauze</p>
+                                            <p className="text-sm font-serif opacity-80 leading-relaxed mb-4">
+                                                贅沢なトリプルガーゼ仕様。<br/>
+                                                お股に当てて使う裏技も。<br/>
+                                                いつでも森を持ち歩く感覚。
+                                            </p>
+                                            <p className="text-base font-en text-brand-dark mb-4">¥0,000</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -464,7 +470,7 @@
                     </section>
 
                     {/* Message Section */}
-                    <section className="py-24 px-6 bg-[#E6DMD3] bg-opacity-30 relative overflow-hidden">
+                    <section className="py-24 px-6 bg-[#E6DBD3] bg-opacity-30 relative overflow-hidden">
                         <div className="absolute inset-0 opacity-10 pointer-events-none">
                              <svg width="100%" height="100%">
                                 <pattern id="pattern-circles" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
